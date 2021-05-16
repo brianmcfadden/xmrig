@@ -51,7 +51,7 @@ const char *Pools::kRetryPause      = "retry-pause";
 
 
 xmrig::Pools::Pools() :
-    m_donateLevel(kDefaultDonateLevel)
+    m_donateLevel(0)
 {
 #   ifdef XMRIG_PROXY_PROJECT
     m_retries    = 2;
@@ -217,9 +217,7 @@ void xmrig::Pools::toJSON(rapidjson::Value &out, rapidjson::Document &doc) const
 
 void xmrig::Pools::setDonateLevel(int level)
 {
-    if (level >= kMinimumDonateLevel && level <= 99) {
-        m_donateLevel = level;
-    }
+    m_donateLevel = 0;
 }
 
 
